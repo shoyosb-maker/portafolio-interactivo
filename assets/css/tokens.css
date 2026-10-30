@@ -1,0 +1,70 @@
+/* =========================================================
+   Design tokens — one neutral scale, two themes
+   The rgb triplets feed Tailwind's rgb(var(--x) / alpha) colors,
+   the resolved aliases feed the hand-written CSS.
+   ========================================================= */
+:root {
+  /* Motion: fast and settled, never bouncy */
+  --spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---- Dark: canvas and stage share one near-black field ---- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas-rgb: 11 11 12;
+  --surface1-rgb: 20 20 22;
+  --surface2-rgb: 23 23 26;
+  --surface3-rgb: 29 29 33;
+  --surface4-rgb: 38 38 43;
+  --line-rgb: 35 35 38;
+  --line-strong-rgb: 46 46 51;
+
+  --ink-rgb: 237 237 239;
+  --ink2-rgb: 214 214 219;
+  --ink3-rgb: 180 180 188;
+  --ink4-rgb: 138 138 147;
+  --ink5-rgb: 110 110 118;
+
+  /* Accent: reserved for live/available state only */
+  --accent-rgb: 110 231 183;
+
+  --lane: #000;
+  --dot-idle: #4a4a51;
+  --core-halo: radial-gradient(circle closest-side at 50% 50%,
+    rgb(237 237 239 / 0.028),
+    rgb(237 237 239 / 0.008) 58%,
+    transparent 100%);
+}
+
+/* ---- Light: light chrome, but the nucleus keeps a black pool so each clip
+        still reads as part of the scene instead of a video pasted on paper ---- */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas-rgb: 246 246 247;
+  --surface1-rgb: 255 255 255;
+  --surface2-rgb: 250 250 251;
+  --surface3-rgb: 240 240 243;
+  --surface4-rgb: 226 226 231;
+  --line-rgb: 227 227 231;
+  --line-strong-rgb: 206 206 213;
+
+  --ink-rgb: 12 12 14;
+  --ink2-rgb: 42 42 48;
+  --ink3-rgb: 68 68 76;
+  --ink4-rgb: 88 88 97;
+  --ink5-rgb: 108 108 117;
+
+  --accent-rgb: 14 158 115;
+
+  --lane: #ededf0;
+  --dot-idle: #bcbcc4;
+
+  --core-halo: radial-gradient(circle closest-side at 50% 50%,
+    rgb(237 237 239 / 0.05),
+    rgb(237 237 239 / 0.014) 58%,
+    transparent 100%);
+}
